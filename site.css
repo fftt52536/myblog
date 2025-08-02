@@ -1,0 +1,28 @@
+.avatar{
+    width: 8em;
+    height: 3em;
+    border-radius: 10px;
+    display: flex;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    background-color: #f8f8f8;
+}
+.avatar>.thumbnail{
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    margin-right: 0.2em;
+}
+.avatar>.username{
+    height: 3em;
+    line-height: 3em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #333366;
+}
+
+.avatar:hover{
+    box-shadow: 1px 1px 5px #cccccc;
+    transform: scale(1.05);
+}

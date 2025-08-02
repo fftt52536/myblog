@@ -1,0 +1,407 @@
+/*
+    示例（可用的class名）
+    .clearfix
+    .border-top
+    .border-bottom
+    .border-left
+    .border-right
+    .border-all
+    .border-none
+    .btn
+    .list-border （在列表项之间添加分割线）
+*/
+
+/*1.定义theme*/
+:root {
+    --color-primary: #0048ff;
+    --txt-primary: #ffffff;
+    --color-secondary: #929292;
+    --txt-secondary: #f7f7f7;
+    --color-tertiary: #a4a4a4;
+    --txt-tertiary: #f4f4f4;
+    --color-bg: #efefef;
+    --txt-bg: #3d3d3d;
+}
+
+/*2.重新定义UI*/
+:root {
+    background-color: var(--color-bg);
+    color: var(--txt-bg);
+}
+
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: var(--color-secondary);
+    text-decoration: underline;
+    background: transparent;
+}
+
+a:not(:hover) {
+    text-decoration: inherit;
+}
+
+/*3.常用class*/
+.clearfix {
+    position: relative;
+    zoom: 1;
+}
+
+.clearfix::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.border-top {
+    border-top: 1px solid var(--color-secondary);
+}
+
+.border-bottom {
+    border-bottom: 1px solid var(--color-secondary);
+}
+
+.border-left {
+    border-left: 1px solid var(--color-secondary);
+}
+
+.border-right {
+    border-right: 1px solid var(--color-secondary);
+}
+
+.border-all {
+    border: 1px solid var(--color-secondary);
+}
+
+.border-none {
+    border: none;
+}
+
+.round {
+    border-radius: 0.3em;
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+input:not([type="checkbox"], [type="radio"]),
+textarea,
+audio,
+select,
+option {
+    display: block;
+    width: 100%;
+    height: 28px;
+    border: 1px solid var(--color-secondary);
+    box-sizing: border-box;
+}
+
+select {
+    cursor: pointer;
+    outline: none;
+}
+
+button,
+[type="button"],
+[type="submit"],
+.btn {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--txt-primary);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    padding-block: 0;
+    padding-inline: 0;
+    padding: 5px;
+    font-size: 100%;
+    line-height: 1.2em;
+    vertical-align: bottom;
+    transition: filter 0.2s linear;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+button:hover,
+[type="button"]:hover,
+[type="submit"]:hover,
+.btn:hover {
+    filter: brightness(0.6) contrast(1.2);
+}
+
+ul,
+ol {
+    display: block;
+    padding: 0;
+}
+
+.list-border>li+li {
+    border-top: 1px solid var(--color-secondary);
+}
+
+li {
+    list-style: none;
+    font-weight: bold;
+    transition: all 0.2s linear;
+}
+
+li a, li.item {
+    color: inherit;
+    display: block;
+    padding: 15px;
+    user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px 0 var(--color-secondary);
+}
+
+li.highlight {
+    background-color: var(--color-primary);
+    box-shadow: 0 0 6px var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--txt-primary);
+}
+
+li:hover {
+    box-shadow: inset 0 0 10px var(--color-secondary);
+    color: var(--color-primary);
+}
+
+.app-btn {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    color: var(--txt-bg);
+    cursor: pointer;
+}
+
+.app-btn i {
+    color: inherit;
+}
+
+.app-btn-bg {
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--color-secondary);
+}
+
+.app-tl,
+.app-tr,
+.app-bl,
+.app-br {
+    position: fixed;
+}
+
+.app-tl {
+    top: 10px;
+    left: 10px;
+}
+
+.app-tr {
+    top: 10px;
+    right: 10px;
+}
+
+.app-bl {
+    bottom: 10px;
+    left: 10px;
+}
+
+.app-br {
+    bottom: 10px;
+    right: 10px;
+}
+
+/* 预留背景接口 */
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+.bg-secondary {
+    background-color: var(--color-secondary);
+}
+
+.bg-tertiary {
+    background-color: var(--color-tertiary);
+}
+
+.bg-default {
+    background-color: var(--color-bg);
+}
+
+.txt-primary {
+    color: var(--txt-primary);
+}
+
+.txt-secondary {
+    color: var(--txt-secondary);
+}
+
+.txt-tertiary {
+    color: var(--txt-tertiary);
+}
+
+.txt-default {
+    color: var(--txt-bg);
+}
+
+.txt-sm {
+    font-size: 80%;
+}
+
+/* 重新定义浏览器UI */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 250%;
+}
+
+h2 {
+    font-size: 190%;
+}
+
+h3 {
+    font-size: 160%;
+}
+
+h4 {
+    font-size: 140%;
+}
+
+h5 {
+    font-size: 120%;
+}
+
+h6 {
+    font-size: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border: none;
+    background: var(--color-secondary);
+    transition: all 0.2s linear;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-tertiary);
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    margin-top: 0.35em;
+    margin-bottom: 0.35em;
+}
+
+.h::before {
+    content: "";
+    position: absolute;
+    left: -0.5em;
+    top: 0.2em;
+    width: 0.25em;
+    height: 80%;
+    background-color: var(--tmp-color-h);
+    filter: opacity(0.2);
+    cursor: pointer;
+}
+
+h1.h {
+    --tmp-color-h: var(--color-primary);
+}
+
+h2.h {
+    --tmp-color-h: var(--color-secondary);
+}
+
+h3.h {
+    --tmp-color-h: var(--color-tertiary);
+}
+
+.h:hover::before {
+    filter: none;
+}
+
+.h {
+    position: relative;
+}
+
+.p {
+    position: relative;
+    padding-left: 0.6em;
+}
+
+.p::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0.2em;
+    height: 100%;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.p:hover::before {
+    background-color: var(--color-secondary);
+}
+
+.p:active::before {
+    background-color: var(--color-primary);
+}
+
+hr {
+    border-color: var(--color-primary);
+}
+
+.funny {
+    transition: transform 0.8s ease-in-out;
+}
+
+.funny:hover {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.funny:active {
+    transform: scale(1.5) rotate(-30deg);
+}

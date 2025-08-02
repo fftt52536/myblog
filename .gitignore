@@ -1,0 +1,28 @@
+# Mac OS
+.DS_Store
+
+# NPM
+/node_modules
+npm-*
+
+# Testing
+/.nyc_output
+/coverage
+
+# Build
+/build
+/dist
+/.opt-in
+
+# Generated translation files
+/translations
+/locale
+
+# Private files
+/config.js
+/ssl
+
+# Sending files
+/.data
+
+/g9d.sql
