@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMIX</title>
+    <style>
+        .comic{
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .comic-img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+    <script src="route.js"></script>
+</head>
+
+<body>
+    <script>
+        var comicElem = document.createElement('div');
+        comicElem.className = 'comic';
+        document.body.appendChild(comicElem);
+        G9D.listen(function () {
+            if (G9D.paths.length < 2) {
+                return;
+            }
+            comicElem.innerHTML = '';
+            var comic_category = G9D.paths[0];
+            var comic_name = G9D.paths[1];
+
+            var todoUrl = '/comics/' + comic_category + '/' + comic_name;
+
+            async function fetchComic() {
+                console.log("Load comic");
+                var pagesUrl = todoUrl + '/config.json';
+
+                var pagesFetching = await fetch(pagesUrl);
+                var pagesJSON = await pagesFetching.json();
+
+                var pages = pagesJSON.pages;
+
+                for (var i = 1; i <= pages; i++) {
+                    var pageUrl = todoUrl + '/' + i + '.png';
+                    var img = document.createElement('img');
+                    img.src = pageUrl;
+                    img.className = 'comic-img';
+                    comicElem.appendChild(img);
+                }
+
+                console.log("Load comic done");
+            }
+
+            fetchComic();
+        });
+    </script>
+</body>
+
+</html>
